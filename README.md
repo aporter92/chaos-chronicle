@@ -1,0 +1,1 @@
+Jiu Jitsu Journal App to track progress, keep detailed notes on technique, build game plans, and upload videos
