@@ -5,14 +5,13 @@ let validateJWT = require("../middleware/validate-session");
 
 // ! Post A Video
 router.post("/upload", validateJWT, async(req, res)=> {
-    const { title, link } = req.body;
-    const { id } = req.user.id;
+    const { title, link } = req.body.video;
+    const  person  = req.user.id;
     const vid = {
         title,
         link,
-        owner: id,
+        owner: person,
     }
-    console.log(id)
     try {
         const newVid = await VideosModel.create(vid);
         res.status(200).json(newVid);

@@ -13,7 +13,7 @@ app.use(middleware.validateSession)
 app.use("/notes", controllers.notesController)
 app.use("/cplan", controllers.compPlanController)
 app.use("/tplan", controllers.trainingPlanController)
-app.use("/videos", controllers.videosController)
+app.use("/video", controllers.videosController)
 
 
 dbConnection.authenticate()

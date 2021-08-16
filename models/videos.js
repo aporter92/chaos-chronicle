@@ -7,6 +7,9 @@ const Video = db.define("video", {
     },
     link: {
         type: DataTypes.STRING
+    },
+    owner:{
+        type: DataTypes.INTEGER
     }
 })
 
