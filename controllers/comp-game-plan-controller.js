@@ -5,8 +5,8 @@ let validateJWT = require("../middleware/validate-session");
 
 // ! Create A Comp Plan
 router.post("/create", validateJWT, async(req, res)=> {
-    const { date, overridingGoal, standUpGoals, whereDoYouLand, whatNext, issues  } = req.body;
-    const { id } = req.user.id;
+    const { date, overridingGoal, standUpGoals, whereDoYouLand, whatNext, issues  } = req.body.cplan;
+    const  id  = req.user.id;
     const compPlan = {
         date, 
         overridingGoal,
@@ -16,7 +16,6 @@ router.post("/create", validateJWT, async(req, res)=> {
         issues,
         owner: id,
     }
-    console.log(req.user.id)
     try {
         const newPlan = await CompetitionGamePlanModel.create(compPlan);
         res.status(200).json(newPlan);
@@ -43,7 +42,7 @@ router.get("/", validateJWT, async (req, res)=>{
 
 // ! Update A Comp Plan
 router.put("/update/:id", validateJWT, async (req, res)=>{
-    const { date, overridingGoal, standUpGoals, whereDoYouLand, whatNext, issues } = req.body;
+    const { date, overridingGoal, standUpGoals, whereDoYouLand, whatNext, issues } = req.body.cplan;
     const planId = req.params.id;
     const userId = req.user.id;
 
