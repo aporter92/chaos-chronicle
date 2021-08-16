@@ -13,10 +13,10 @@ const CompetitionGamePlan= db.define("cplan", {
     standUpGoals: {
         type: DataTypes.STRING
     },
-    where_do_you_land: {
+    whereDoYouLand: {
         type: DataTypes.STRING
     },
-    what_next: {
+    whatNext: {
         type: DataTypes.STRING
     },
     issues: {
