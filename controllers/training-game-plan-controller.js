@@ -5,15 +5,15 @@ let validateJWT = require("../middleware/validate-session");
 
 // ! Create A Training Plan
 router.post("/create", validateJWT, async(req, res)=> {
-    const { date, standUpGoals, top, bottom, issues } = req.body;
-    const { id } = req.user.id;
+    const { date, standUpGoals, top, bottom, issues } = req.body.tplan;
+    const person  = req.user.id;
     const trainingPlan = {
         date, 
         standUpGoals,
         top,
         bottom,
         issues,
-        owner: id,
+        owner: person,
     }
     try {
         const newPlan = await TrainingGamePlanModel.create(trainingPlan);
@@ -41,7 +41,7 @@ router.get("/", validateJWT, async (req, res)=>{
 
 // ! Update A Training Plan
 router.put("/update/:id", validateJWT, async (req, res)=>{
-    const { date, standUpGoals, top, bottom, issues } = req.body;
+    const { date, standUpGoals, top, bottom, issues } = req.body.tplan;
     const planId = req.params.id;
     const userId = req.user.id;
 
