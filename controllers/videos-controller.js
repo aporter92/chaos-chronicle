@@ -18,7 +18,6 @@ router.post("/upload", validateJWT, async(req, res)=> {
     } catch (err) {
         res.status(500).json({error: err});
     }
-    VideosModel.create(vid)
 });
 
 // ! Get Videos
